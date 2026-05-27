@@ -6,7 +6,7 @@
 /*   By: notjustlaw <notjustlaw@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 12:58:32 by notjustlaw        #+#    #+#             */
-/*   Updated: 2026/05/27 12:58:31 by notjustlaw       ###   ########.fr       */
+/*   Updated: 2026/05/27 14:00:32 by notjustlaw       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include "brain.hpp"
 
 class Animal {
 	protected:
@@ -24,11 +25,13 @@ class Animal {
 		Animal(const Animal& other);
 		Animal& operator=(const Animal& other);
 		virtual ~Animal();
-		virtual void makeSound() const;
+		virtual void makeSound() const = 0;
 		std::string getType() const;
 };
 
 class Dog : public Animal {
+	private:
+		Brain* brain;
 	public:
 		Dog();
 		Dog(const Dog& other);
@@ -39,6 +42,8 @@ class Dog : public Animal {
 };
 
 class Cat : public Animal {
+	private:
+		Brain* brain;
 	public:
 		Cat();
 		Cat(const Cat& other);

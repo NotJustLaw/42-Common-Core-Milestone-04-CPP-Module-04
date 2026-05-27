@@ -6,7 +6,7 @@
 /*   By: notjustlaw <notjustlaw@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 12:58:35 by notjustlaw        #+#    #+#             */
-/*   Updated: 2026/05/27 13:55:37 by notjustlaw       ###   ########.fr       */
+/*   Updated: 2026/05/27 14:01:26 by notjustlaw       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int main()
 {
-	std::cout << "=== Test 1: Basic Animal creation ===" << std::endl;
+	std::cout << "=== Test 1: Abstract Animal - can only use Dog/Cat ===" << std::endl;
+	// const Animal* meta = new Animal(); //We commment this bc the animal is now abstrac
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
@@ -51,8 +52,7 @@ int main()
 	std::cout << "\nCopying dog...\n";
 	Dog copiedDog = originalDog;
 
-	std::cout << "\nCopied dog created. Now both will go out of scope.\n";
-	std::cout << "If deep copy works, we should see 2 brain destructors and 2 dog destructors.\n\n";
+	std::cout << "\nCopied dog created. Both will go out of scope.\n\n";
 
 	std::cout << "\n=== Test 4: Deep Copy Test with Assignment Operator ===" << std::endl;
 	Cat cat1;
@@ -63,15 +63,13 @@ int main()
 	
 	std::cout << "\nAssignment complete. Both will go out of scope.\n\n";
 
-	std::cout << "\n=== Test 5: Modifying ideas to test deep copy ===" << std::endl;
+	std::cout << "\n=== Test 5: Copy Constructor ===" << std::endl;
 	Dog dog1;
-	dog1.getType();
 	
 	std::cout << "\nCopying dog1 to dog2...\n";
 	Dog dog2 = dog1;
 	
-	std::cout << "\nBoth dogs created with their own brains (deep copy).\n";
-	std::cout << "dog1 and dog2 are now separate with independent brains.\n\n";
+	std::cout << "\nBoth dogs have independent brains (deep copy).\n\n";
 
 	return 0;
 }

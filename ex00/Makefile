@@ -6,7 +6,7 @@
 #    By: notjustlaw <notjustlaw@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/04 13:27:58 by notjustlaw        #+#    #+#              #
-#    Updated: 2026/05/19 13:03:58 by notjustlaw       ###   ########.fr        #
+#    Updated: 2026/05/27 13:00:35 by notjustlaw       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = animal
 CXX = g++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp dog.cpp cat.cpp
+SRCS = main.cpp animal.cpp wrongAnimal.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: notjustlaw <notjustlaw@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 12:58:32 by notjustlaw        #+#    #+#             */
-/*   Updated: 2026/05/04 13:48:12 by notjustlaw       ###   ########.fr       */
+/*   Updated: 2026/05/27 13:02:57 by notjustlaw       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,42 @@
 
 #include <iostream>
 #include <string>
+#include "brain.hpp"
 
 class Animal {
 	protected:
 		std::string type;
 	public:
-		Animal() : type("Animal") {}
-		virtual void makeSound() const {std::cout << "Animal sound\n";};
-		virtual ~Animal(){std::cout << this->type << " destructor called\n";};
-		std::string getType() const {return this->type;};
+		Animal();
+		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
+		virtual ~Animal();
+		virtual void makeSound() const;
+		std::string getType() const;
 };
 
-class Dog : public Animal{
+class Dog : public Animal {
+	private:
+		Brain* brain;
 	public:
-		Dog() {std::cout << "Dog Constructor called\n"; this->type = "Dog";};
-		void makeSound() const ;
-		std::string getType() const {return this->type;};
-		~Dog(){std::cout << this->type << " destructor called\n";};
+		Dog();
+		Dog(const Dog& other);
+		Dog& operator=(const Dog& other);
+		void makeSound() const;
+		std::string getType() const;
+		~Dog();
 };
 
-class Cat : public Animal{
+class Cat : public Animal {
+	private:
+		Brain* brain;
 	public:
-		Cat() {std::cout << "Cat Constructor called\n";  this->type = "Cat";};
-		void makeSound() const ;
-		std::string getType() const {return this->type;};
-		~Cat(){std::cout << this->type << " destructor called\n";};
+		Cat();
+		Cat(const Cat& other);
+		Cat& operator=(const Cat& other);
+		void makeSound() const;
+		std::string getType() const;
+		~Cat();
 };
 
 #endif
